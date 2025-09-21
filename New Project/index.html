@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Web Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-image: url('simple.png');
+    }
+
+    header {
+      background: transparent;
+      box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    header marquee {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: black;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+      background-color: black;
+      padding: 5px 10px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgb(0, 0, 0);
+      transform: scale(1.1);
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    main section ul li {
+      margin-bottom: 20px;
+      color: white;
+      font-size: 20px;
+    }
+
+    main section ul li img {
+      width: 120px;
+      border-radius: 10px;
+      margin-top: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    main section ul li img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgb(0, 0, 0);
+    }
+
+    section h2 {
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 24px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    section p {
+      color: white;
+      font-size: 20px;
+    }
+
+    hr {
+      margin: 20px 0;
+      border: 1px solid rgb(255, 255, 255);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 8px 15px;
+      max-width: 500px;
+        text-align: center;
+      background: black;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: white;
+        color: black;
+        box-shadow: 0 10px 20px rgb(0, 0, 0);
+        transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 20px;
+      background: transparent;
+      box-shadow: 0 -10px 15px rgba(0,0,0,0.5);
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <marquee behavior="scroll" direction="right" scrollamount="10">Welcome to My Web Page</marquee>
+    <br>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Home</h2>
+      <p>Welcome to the homepage of my website. Here you can find the latest updates and news.</p>
+    </section>
+    <hr>
+    <section>
+      <h2>Latest News</h2>
+      <ul>
+        <li>New blog post available! <br> <img src="blog-post.jpg" alt="Blog Post Image"></li>
+        <li>Check out our latest projects. <br> <img src="projects.jpg" alt="Projects Image"></li>
+        <li>Subscribe to our newsletter. <br> <img src="newsletter.jpg" alt="Newsletter Image"></li>
+      </ul>
+    </section>
+    <hr>
+
+    <!-- User Login -->
+    <h3>If You Want Login / See Users Go On This. 👇</h3>
+    <div class="user-login">
+      <button class="btn" onclick="toggleLogin()">User Login</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Social Web Inc.</p>
+  </footer>
+
+  <script>
+    function toggleLogin() {
+      window.location.href = 'user-login.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef;
+      padding: 20px;
+    }
+    .hidden { display: none; }
+    form {
+      margin-top: 10px;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      max-width: 300px;
+    }
+    input {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 8px;
+    }
+    button, input[type="submit"] {
+      padding: 8px 15px;
+      margin-top: 10px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover, input[type="submit"]:hover {
+      background: green;
+      transform: scale(1.1);
+    }
+    #activeUsers li {
+      margin: 5px 0;
+      padding: 5px;
+      background: #ddd;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>User Login</h2>
+
+  <!-- Login Button -->
+  <button onclick="toggleLoginForm()">User Login</button>
+
+  <!-- Login Form -->
+  <div id="loginForm" class="hidden">
+    <form onsubmit="login(event)">
+      <label for="username">Username:</label>
+      <input type="text" id="username" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <!-- User Count Button -->
+  <button onclick="toggleUserList()">User Count</button>
+  <div id="userList" class="hidden">
+    <h3>Active Users</h3>
+    <ul id="activeUsers"></ul>
+  </div>
+  <div id="back">
+    <button onclick="goBack()">Go Back 🔙</button>
+  </div>
+
+  <script>
+    function toggleLoginForm() {
+      document.getElementById("loginForm").classList.toggle("hidden");
+    }
+
+    function login(event) {
+      event.preventDefault();
+      let username = document.getElementById("username").value.trim();
+      let password = document.getElementById("password").value; // not used in demo
+
+      if (username) {
+        let users = JSON.parse(localStorage.getItem("activeUsers")) || [];
+        if (!users.includes(username)) {
+          users.push(username);
+          localStorage.setItem("activeUsers", JSON.stringify(users));
+          alert(username + " logged in!");
+        } else {
+          alert(username + " is already logged in.");
+        }
+      }
+      document.getElementById("loginForm").classList.add("hidden");
+    }
+
+    function toggleUserList() {
+      let userListDiv = document.getElementById("userList");
+      userListDiv.classList.toggle("hidden");
+      if (!userListDiv.classList.contains("hidden")) {
+        showUsers();
+      }
+    }
+
+    function showUsers() {
+      let users = JSON.parse(localStorage.getItem("activeUsers")) || [];
+      let list = document.getElementById("activeUsers");
+      list.innerHTML = "";
+      if (users.length === 0) {
+        list.innerHTML = "<li>No active users</li>";
+      } else {
+        users.forEach((user, index) => {
+          let li = document.createElement("li");
+          li.textContent = user + " ";
+          let logoutBtn = document.createElement("button");
+          logoutBtn.textContent = "Logout";
+          logoutBtn.style.marginLeft = "10px";
+          logoutBtn.onclick = function () { logout(user); };
+          li.appendChild(logoutBtn);
+          list.appendChild(li);
+        });
+      }
+    }
+
+    function logout(username) {
+      let users = JSON.parse(localStorage.getItem("activeUsers")) || [];
+      users = users.filter(u => u !== username);
+      localStorage.setItem("activeUsers", JSON.stringify(users));
+      showUsers();
+      alert(username + " logged out!");
+    }
+    function goBack() {
+      window.location.href = 'index.html';
+    }
+  </script>
+
+</body>
+</html>

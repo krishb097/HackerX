@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-image: url('simple.png');
+        }
+
+        header {
+            background: transparent;
+            box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header marquee {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+                         'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            background-color: black;
+            padding: 5px 10px;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgb(0, 0, 0);
+            transform: scale(1.1);
+        }
+
+        /* === About Section === */
+        .about-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 20px;        /* space between image and text */
+            margin: 30px auto;
+            max-width: 800px; /* center the block and limit width */
+        }
+
+        .profile-pic img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic img:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-details {
+            color: white;
+            font-size: 18px;
+        }
+
+        .profile-details h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .profile-details h3 {
+            margin: 8px 0;
+            font-size: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 14%;
+            background: transparent;
+            box-shadow: 0 -10px 15px rgba(0,0,0,0.5);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <marquee behavior="scroll" direction="right" scrollamount="10">Welcome to My Web Page</marquee>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-container">
+            <div class="profile-pic">
+                <img src="profile.jpg" alt="Profile Picture">
+            </div>
+            <div class="profile-details">
+                <h2>About Me</h2>
+                <h3>Name: <b>HackerX Devlp.</b></h3>
+                <h3>Education: <b>Bachelor's in Computer Tech.</b></h3>
+                <h3>Hobbies: <b>Coding, Reading, Traveling</b></h3>
+                <h3>Work As: <b>Software And Web Developer</b></h3>
+                <h3>Secret Skill: <b><span class="skill">Hacking</span></b></h3>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Social Web Inc.</p>
+    </footer>
+</body>
+</html>
